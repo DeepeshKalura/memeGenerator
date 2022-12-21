@@ -118,7 +118,7 @@ class _MainScreenState extends State<MainScreen> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: totalHeight / 50,
+              height: totalHeight / 55,
             ),
           ],
         ),

@@ -10,17 +10,11 @@ class splashScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
-              width: MediaQuery.of(context).size.width,
-              height: 300,
-              "https://raw.githubusercontent.com/codewithdhruv22/CodeWithDhruv/main/applogo.png"),
-          SizedBox(
-            height: 30,
+          Image.asset(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height / 1,
+            "assets/usedinMemeApp/splashScreenDmeme.gif",
           ),
-          Text(
-            "UnSad App",
-            style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
-          )
         ],
       ),
     );
