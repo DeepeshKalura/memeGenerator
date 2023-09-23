@@ -86,7 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: totalHeight / 1.7,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.fill,
-                    imgUrl),
+                    imgUrl,
+                  ),
             SizedBox(
               height: totalHeight / 35,
             ),
