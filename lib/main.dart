@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/view/mainScreen.dart';
-import '/view/splashScreen.dart';
+import 'view/home_screen.dart';
+import 'view/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: showSplash ? const splashScreen() : MainScreen(),
+      home: showSplash ? const SplashScreen() : const HomeScreen(),
     );
   }
 }
