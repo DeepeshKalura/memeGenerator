@@ -4,6 +4,10 @@
 
 The **Random Meme Generator** is a Flutter application that allows users to fetch and view random memes from a JSON API. This README file provides essential information for developers who want to contribute to or use this application.
 
+## Images 
+![Home Screen](./assets/present/hoem_screen.png)
+![Splash Screen](./assets/usedinMemeApp/splashScreenDmeme.gif)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -101,3 +105,6 @@ We welcome contributions from the community. If you'd like to contribute to this
 
 
 
+
+# License
+There are none. Use it however you want. Would be nice if you could give me credit though.
