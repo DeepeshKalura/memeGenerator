@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../controller/fetchMeme.dart';
 import '../controller/saveMyData.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   String imgUrl = "";
   int? memeNo;
   int targetMeme = 100;
