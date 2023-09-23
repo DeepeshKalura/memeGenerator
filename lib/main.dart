@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool showSplash = true;
   showSplashScreen() {
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 6), () {
       setState(() {
         showSplash = false;
       });
@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: showSplash ? splashScreen() : MainScreen(),
+      home: showSplash ? const splashScreen() : MainScreen(),
     );
   }
 }

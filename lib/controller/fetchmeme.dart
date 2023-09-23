@@ -8,8 +8,7 @@ class FetchMeme {
       Uri.parse("https://meme-api.com/gimme"),
     );
 
-    Map body_data = jsonDecode(response.body);
-    return body_data["url"];
-    print(body_data["url"]);
+    Map bodyData = jsonDecode(response.body);
+    return bodyData["url"];
   }
 }

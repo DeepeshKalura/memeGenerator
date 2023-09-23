@@ -4,7 +4,7 @@ import '../controller/fetchMeme.dart';
 import '../controller/saveMyData.dart';
 
 class MainScreen extends StatefulWidget {
-  MainScreen({Key? key}) : super(key: key);
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -18,16 +18,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
-
     super.initState();
 
-    GetInitMemeNo();
+    getInitMemeNo();
 
-    UpdateImg();
+    updateImg();
   }
 
-  GetInitMemeNo() async {
+  getInitMemeNo() async {
     memeNo = await SaveMyData.fetchData() ?? 0;
     if (memeNo! > 100) {
       targetMeme = 500;
@@ -37,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {});
   }
 
-  void UpdateImg() async {
+  void updateImg() async {
     String getImgUrl = await FetchMeme.fetchNewMeme();
     // imgUrl = getImgUrl;
     setState(() {
@@ -48,7 +46,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var totalWidth = MediaQuery.of(context).size.width;
     var totalHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -61,27 +58,30 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Text(
               "Meme #${memeNo.toString()}",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
             ),
             SizedBox(
               height: totalHeight / 45,
             ),
             Text(
-              "Target ${targetMeme} Memes",
-              style: TextStyle(fontSize: 18),
+              "Target $targetMeme Memes",
+              style: const TextStyle(fontSize: 18),
             ),
             SizedBox(
               height: totalHeight / 30,
             ),
             isLoading
-                ? Container(
+                ? SizedBox(
                     height: 400,
                     width: MediaQuery.of(context).size.width,
-                    child: Center(
-                        child: SizedBox(
-                            height: 60,
-                            width: 60,
-                            child: CircularProgressIndicator())))
+                    child: const Center(
+                      child: SizedBox(
+                        height: 60,
+                        width: 60,
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                  )
                 : Image.network(
                     height: totalHeight / 1.7,
                     width: MediaQuery.of(context).size.width,
@@ -91,29 +91,34 @@ class _MainScreenState extends State<MainScreen> {
               height: totalHeight / 35,
             ),
             ElevatedButton(
-                onPressed: () async {
-                  setState(() {
+              onPressed: () async {
+                setState(
+                  () {
                     isLoading = true;
-                  });
-                  await SaveMyData.saveData(memeNo! + 1);
-                  GetInitMemeNo();
+                  },
+                );
+                await SaveMyData.saveData(memeNo! + 1);
+                getInitMemeNo();
 
-                  UpdateImg();
-                },
-                child: Container(
-                    height: totalHeight / 25,
-                    width: 150,
-                    child: Center(
-                        child: Text(
-                      "More Fun!!",
-                      style: TextStyle(fontSize: 20),
-                    )))),
-            Spacer(),
-            Text(
+                updateImg();
+              },
+              child: SizedBox(
+                height: totalHeight / 25,
+                width: 150,
+                child: const Center(
+                  child: Text(
+                    "More Fun!!",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+            const Spacer(),
+            const Text(
               "APP CREATED BY",
               style: TextStyle(fontSize: 20),
             ),
-            Text(
+            const Text(
               "Deepesh Kalura",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
